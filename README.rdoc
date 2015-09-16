@@ -1,5 +1,12 @@
 == README
 
+I just signed up and will be going to this meetup!
+http://www.meetup.com/BeginnerProgrammers/events/225055870/
+
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
