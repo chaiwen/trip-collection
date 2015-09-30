@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
 
   get "signup" => "users#new", :as => "signup"
+  #get "show" => "users#show", :as => "show"
+
   get "login" => "sessions#new"
   post "login" => "sessions#create"
+
   get "logout" => "sessions#destroy", :as => "logout"
 
 

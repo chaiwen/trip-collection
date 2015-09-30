@@ -2,10 +2,12 @@
 
 one:
   first_name: 
-  last_Name: 
+  last_name: 
   email: 
+  password: 
 
 two:
   first_name: 
-  last_Name: 
+  last_name: 
   email: 
+  password: 
