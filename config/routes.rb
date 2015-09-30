@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :photos
+  resources :reviews
+  resources :trips
+  resources :activities
+  resources :tags
   resources :users
   
 

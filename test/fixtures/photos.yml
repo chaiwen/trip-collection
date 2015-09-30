@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  URL: 
+  caption: 
+  date: 
+  rating: 
+  photoable_id: 
+  photoable_type: Photoable
+
+two:
+  URL: 
+  caption: 
+  date: 
+  rating: 
+  photoable_id: 
+  photoable_type: Photoable
