@@ -4,7 +4,7 @@ class Trip
   has_many :activities
   embeds_one :user
   has_and_belongs_to_many :users
-  has_many :reviews, as: :reviewable, dependent: :destroy
+  has_many :reviews, as: :reviewable
 
   field :title, type: String
   field :rating, type: Float

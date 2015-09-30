@@ -1,7 +1,7 @@
 class Activity
   include Mongoid::Document
 
-  has_many :reviews, as: :reviewable, dependent: :destroy
+  has_many :reviews, as: :reviewable
   has_and_belongs_to_many: tags
   has_and_belongs_to_many: trips
   has_many: photos, as: :photoable

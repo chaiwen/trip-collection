@@ -15,7 +15,7 @@ MODELS:
 	has_many :users # friend list
 
 2. Activity
-	has_many :reviews, as: :reviewable, dependent: :destroy
+	has_many :reviews, as: :reviewable
 	has_and_belongs_to_many: tags
 	has_and_belongs_to_many: trips
 	has_many: photos, as: :photoable
@@ -26,11 +26,11 @@ MODELS:
 	has_many :activities
 	embeds_one :user
 	has_and_belongs_to_many :users
-	has_many :reviews, as: :reviewable, dependent: :destroy
+	has_many :reviews, as: :reviewable
 
 # trips and activities can be tagged (category)
 4. Tag
-	belongs_to :tagable, polymorphic: true
+	has_and_belongs_to_many :tagable, polymorphic: true
 
 5. Review
 	embedded_in :reviewable
