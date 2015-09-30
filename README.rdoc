@@ -1,16 +1,59 @@
 == README
 
-I just signed up and will be going to this meetup!
-http://www.meetup.com/BeginnerProgrammers/events/225055870/
+9/30/15
+
+This app will allow users to build trips as a collection of activities.
+The activities can be shared among trips.
+Users can also save (bookmark) other users' trips and individual activities.
+
+MODELS:
+
+1. User
+	has_many :trips
+	has_many :activities
+	has_one  :photo, as: :photoable
+	has_many :users # friend list
+
+2. Activity
+	has_many :reviews, as: :reviewable, dependent: :destroy
+	has_and_belongs_to_many: tags
+	has_and_belongs_to_many: trips
+	has_many: photos, as: :photoable
+	has_and_belongs_to_many: user
+	embeds_one: user
+
+3. Trip
+	has_many :activities
+	embeds_one :user
+	has_and_belongs_to_many :users
+	has_many :reviews, as: :reviewable, dependent: :destroy
+
+# trips and activities can be tagged (category)
+4. Tag
+	belongs_to :tagable, polymorphic: true
+
+5. Review
+	embedded_in :reviewable
+	embeds_one :user
+
+# users can have a profile photo, activities can also have photos
+6. Photo
+	embedded_in :photoable, polymorphic: true
+	embeds_one  :user
 
 
 
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+
+
+
+
+
+
+
+
 
 * Ruby version
 
