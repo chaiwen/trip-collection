@@ -5,8 +5,13 @@ class Activity
   has_and_belongs_to_many: tags
   has_and_belongs_to_many: trips
   has_many: photos, as: :photoable
-  has_and_belongs_to_many: user
-  embeds_one: user
+
+
+  has_and_belongs_to_many: user??
+  embeds_one: user?? author vs collected vs liked?
+
+
+
 
   field :name, type: String
   field :address, type: String

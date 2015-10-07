@@ -1,7 +1,8 @@
 class Review
   include Mongoid::Document
 
-  embedded_in :reviewable
+  # reviews of trips, individual activities
+  embedded_in :reviewable, polymorphic: true
   embeds_one :user
 
 

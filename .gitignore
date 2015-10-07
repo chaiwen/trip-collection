@@ -12,3 +12,4 @@
 !/log/.keep
 /tmp
 .DS_Store
+hw4_dataset/1995_Street_Tree_Census.csv
