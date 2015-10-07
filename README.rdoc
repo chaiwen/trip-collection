@@ -1,5 +1,16 @@
 == README
 
+10/6 HW 4
+
+Used data (1995 tree census) from: https://data.cityofnewyork.us/Environment/1995-Street-Tree-Census/kyad-zm4j
+
+Call rake task with csv file path as argument:
+rake tree_data:import_trees\[hw4_dataset/1995_Street_Tree_Census_Short.csv\]
+
+Adds Tree data to database.
+
+----------------------------------------------------------------------------------
+
 9/30/15
 
 This app will allow users to build trips as a collection of activities.
