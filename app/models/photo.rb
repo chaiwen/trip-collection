@@ -6,16 +6,15 @@ class Photo
   #optional?
   #embedded_in 	:photoable, class_name: "User", inverse_of: :profile_photo	# user profile pic
 
-  belongs_to	:user # uploaded by user
+  belongs_to	:activity					# all photos are of an activity *required*
+  belongs_to	:user 						# uploaded by user
+  has_many		:likers, class_name: "User"	#inverse_of: :liked_photo 	# users likes
 
-  has_many		:likers, class_name: "User" #inverse_of: :liked_photo 	# users likes
-
-  
+  #############################################################################
 
   field :url, type: String
   field :caption, type: String
   field :date, type: String
-  # field :rating, type: Float
-  field :likes, type: Fixnum
+  field :likes, type: Integer
 
 end

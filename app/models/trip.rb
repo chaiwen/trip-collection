@@ -1,11 +1,17 @@
 class Trip
   include Mongoid::Document
 
-  has_many :activities
-  embeds_one :user
-  has_and_belongs_to_many :users
-  has_many :reviews, as: :reviewable
-  has_many :tags, as: :tagable
+  belongs_to 	:user # author
+  belongs_to	:user, inverse_of: :saved_trips # bookmarked
+
+  has_and_belongs_to_many 		:activities 			# trip is composed of these activities
+
+  has_many 		:reviews, :as => :reviewable # trip reviews
+
+  # has and belongs to many??
+  has_many :tags, as: :tagable # tagged categories
+
+  #############################################################################
 
   field :title, type: String
   field :rating, type: Float

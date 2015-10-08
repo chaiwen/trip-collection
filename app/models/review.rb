@@ -1,10 +1,13 @@
 class Review
   include Mongoid::Document
 
-  # reviews of trips, individual activities
-  embedded_in :reviewable, polymorphic: true
-  embeds_one :user
+  # reviews of trips and activities
+  belongs_to :reviewable, polymorphic: true
+  belongs_to :user
 
+  # set of associated photos??
+
+  #############################################################################
 
   field :text, type: String
   field :date, type: String

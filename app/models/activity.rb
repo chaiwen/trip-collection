@@ -1,17 +1,19 @@
 class Activity
   include Mongoid::Document
 
-  has_many :reviews, as: :reviewable
-  has_and_belongs_to_many: tags
-  has_and_belongs_to_many: trips
-  has_many: photos, as: :photoable
+  belongs_to  :user # author
+  belongs_to  :user, inverse_of: :saved_activities # bookmarked
 
+  has_and_belongs_to_many    :trips  # trip is composed of these activities
 
-  has_and_belongs_to_many: user??
-  embeds_one: user?? author vs collected vs liked?
+  has_many    :photos   # photos of activity
 
+  has_many :reviews, :as => :reviewable
 
+  # has and belongs to many??
+  has_many :tags, as: :tagable # tagged categories
 
+  #############################################################################
 
   field :name, type: String
   field :address, type: String
