@@ -12,4 +12,13 @@ class Review
   field :text, type: String
   field :date, type: String
   field :rating, type: Float
+
+
+  validate :must_belong_to_reviewable
+
+  def must_belong_to_reviewable
+  	if reviewable == nil
+  		errors.add(:reviewable, "Review must belong to a Trip or Activity!")
+  	end
+  end
 end

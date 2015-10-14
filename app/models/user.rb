@@ -36,17 +36,23 @@ class User
   field :photo_date, type: String
 
 
-  # custom validation
-  validate :email_and_user_name_unique
-  def email_and_user_name_unique
-  	if email == nil
-  		errors.add(:email, "email required!")
-  	end
+  validates :email, uniqueness: true
+  validates :user_name, uniqueness: true
 
-  	if user_name == nil
-  		errors.add(:user_name, "user_name required and must be unique!")
+  # custom validation
+  #validate :user_cannot_follow_self
+  	
+  #end
+
+  before_validation on: :create do |document|
+
+  	puts "BEFORE UPDATE!!!"
+  	puts document.as_document
+  	if user_name == :user_id
+  		errors.add(:followers, "user cannot follow self!")
   	end
   end
+
 
   # update view
 =begin

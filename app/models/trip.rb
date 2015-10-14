@@ -1,15 +1,14 @@
 class Trip
   include Mongoid::Document
 
-  belongs_to 	:user # author
-  belongs_to	:user, inverse_of: :saved_trips # bookmarked
+  belongs_to :user # author
+  has_and_belongs_to_many :savers, class_name: "User", inverse_of: :saved_trips # bookmarked
 
-  has_and_belongs_to_many 		:activities 			# trip is composed of these activities
+  has_and_belongs_to_many :activities # trip is composed of these activities
+  has_and_belongs_to_many :tags # tagged categories
 
-  has_many 		:reviews, :as => :reviewable # trip reviews
+  has_many 		:reviews, as: :reviewable # trip reviews
 
-  # has and belongs to many??
-  has_many :tags, as: :tagable # tagged categories
 
   #############################################################################
 

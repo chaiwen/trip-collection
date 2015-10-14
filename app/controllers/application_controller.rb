@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
   	if @current_user.nil?
-		@current_user = User.find(session[:_id]) if session[:_id]
+		  @current_user = User.find(session[:user_id]) if session[:user_id]
 
     #hits db every time
 	  end
@@ -16,9 +16,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def require_user
+    puts "require_user-------------?????"
+    
   	if current_user
-		return true
+		  return true
 	  end
+    puts "RETURNING TO ROOOOOT"
 	  redirect_to root_url
   end
 end

@@ -1,5 +1,15 @@
 == README
 
+10/13 HW 5
+
+Add validations:
+
+1. User requires email and a unique user_name
+2. User cannot follow self
+3. Photo must belong to an Activity
+4. Tags must be unique 
+5. Reviews must belong to a reviewable (Activity or Trip)
+
 10/6 HW 4
 
 Used data (1995 tree census) from: https://data.cityofnewyork.us/Environment/1995-Street-Tree-Census/kyad-zm4j

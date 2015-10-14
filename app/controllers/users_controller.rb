@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
+    puts "SHOW USER!!!!!"
+    # show.html
   end
 
   # GET /users/new
@@ -42,7 +45,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    #@user = User.find(params[:id])
+    @user = User.find(params[:id])
 
     respond_to do |format|
       if @user.update(user_params)

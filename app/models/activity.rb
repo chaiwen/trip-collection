@@ -2,16 +2,17 @@ class Activity
   include Mongoid::Document
 
   belongs_to  :user # author
-  belongs_to  :user, inverse_of: :saved_activities # bookmarked
+  has_and_belongs_to_many  :savers, class_name: "User", inverse_of: :saved_activities # bookmarked
 
   has_and_belongs_to_many    :trips  # trip is composed of these activities
+  has_and_belongs_to_many :tags # tagged categories
 
   has_many    :photos   # photos of activity
+  has_many :reviews, as: :reviewable
 
-  has_many :reviews, :as => :reviewable
 
-  # has and belongs to many??
-  has_many :tags, as: :tagable # tagged categories
+#.as_document
+
 
   #############################################################################
 
