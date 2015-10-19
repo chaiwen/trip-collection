@@ -3,33 +3,30 @@ class SessionsController < ApplicationController
 	skip_before_filter :require_user, :only => [:new, :create]
 
 	def new
-		puts "NEW SESSIOnS_controller!"
+		puts "------------------>sessions controller: new"
 	end
 
 	def create
-		user = User.find_by(email: params[:session][:email])
+		puts "------------------>sessions controller: create"
 
-		if user
-			session[:user_id] = user.id
-			#redirect_to user_path
+		user = User.find_by(email: params[:session][:email].downcase)
 
+		if user && user.authenticate(params[:session][:password])
 			puts "found user!"
-			puts user.id
 
-			
-
-
+			log_in user
+			redirect_to user
 
 
-			redirect_to user_path(session[:user_id])
+
+			#redirect_to user_path(session[:user_id])
 		else
 			# signin page
 
-			puts "new new"
-
-			redirect_to user_path
+			flash[:danger] = 'Invalid email/password combination'
+			puts "user not found!"
 			
-			# render "new"
+			render 'new'
 		end
 	end
 

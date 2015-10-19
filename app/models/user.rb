@@ -38,7 +38,8 @@ class User
 
   validates :email, uniqueness: true
   validates :user_name, uniqueness: true
-
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }
   # custom validation
   #validate :user_cannot_follow_self
   	
@@ -52,6 +53,8 @@ class User
   		errors.add(:followers, "user cannot follow self!")
   	end
   end
+
+  #has_secure_password
 
 
   # update view

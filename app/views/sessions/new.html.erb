@@ -1,12 +1,15 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
 <%= form_for :session, :url => login_path, :method => :post do |f| %>
 	
 	<div class="field">
-		<%= f.label "Email address" %><br>
-		<%= f.text_field :email %>
+		<%= f.label :email %><br>
+		<%= f.email_field :email, class: 'form-control' %>
 	</div>
 	<div>
-		<%= f.label "password" %><br>
-		<%= f.text_field :password %>
+		<%= f.label :password %><br>
+		<%= f.password_field :password, class: 'form-control' %>
 	</div>
 
 	<div class="actions">
@@ -14,3 +17,5 @@
 		<%= f.submit "Log in" %>
 	</div>
 <% end %>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>
