@@ -30,15 +30,19 @@ class User
   field :user_name, type: String
   field :email, type: String
   field :password, type: String
+  field :password_digest, type: String # for authenticating password
 
   # profile photo
   field :photo_url, type: String
   field :photo_date, type: String
 
 
-  validates :email, uniqueness: true
+  validates :email, presence: true, length: { maximum: 255 },
+  					format: { with: VALID_EMAIL REGEX },
+  					uniqueness: {case_sensitive: false}
+
   validates :user_name, uniqueness: true
-  has_secure_password
+  #has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   # custom validation
   #validate :user_cannot_follow_self
@@ -54,7 +58,7 @@ class User
   	end
   end
 
-  #has_secure_password
+  has_secure_password
 
 
   # update view

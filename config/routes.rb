@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"
+
+  get "edit_user" => "users#edit"
   delete "logout" => "sessions#destroy"
 
 
