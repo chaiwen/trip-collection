@@ -10,18 +10,19 @@
       </ul>
     </div>
   <% end %>
+  <%= render 'shared/error_messages' %>
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :user_name %><br>
-    <%= f.text_field :user_name %>
+    <%= f.text_field :user_name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -31,7 +32,12 @@
     <%= f.label :password %><br>
     <%= f.password_field :password, class: 'form-control' %>
   </div>
+  <div class="field">
+    <%# class: "form-control"%>
+    <%= f.label :password_confirmation, "Confirmation" %><br>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "create account", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
   skip_before_filter :require_user, :only => [:new, :create]
 
   # GET /users
@@ -14,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 
+    # todo??
+    @user = User.find(params[:id])
     puts "SHOW USER!!!!!"
     # show.html
   end
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        flash[:success] = "Welcome to app!"
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -82,6 +84,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       puts "------------------>sessions controller: user_params"
-      params.require(:user).permit(:first_name, :last_name, :user_name, :email, :password)
+      params.require(:user).permit(:first_name, :last_name, :user_name, :email, :password, :password_confirmation)
     end
 end
