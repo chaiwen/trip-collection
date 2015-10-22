@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
+  resources :photos
+  resources :reviews
+  resources :trips
+  resources :activities
+  resources :tags
+  resources :users
+
+
+
+  root                 'sessions#new' # home page
+
+  get 'signup'      => 'users#new', :as => 'signup'
+
+  get 'login'       => 'sessions#new', :as => 'login' # as creates named path, so you can use login_path
+  post 'login'      => 'sessions#create'
+
+  get 'edit_user'   => 'users#edit'
   
-  root 'sessions#new'
-
-
-  get "signup" => "users#new", :as => "signup"
-
-  get "login" => "sessions#new"
-  post "login" => "sessions#create"
-
-  get "edit_user" => "users#edit"
-  delete "logout" => "sessions#destroy"
+  delete 'logout'   => 'sessions#destroy', :as => 'logout'
 
 
 
@@ -19,12 +27,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :photos
-  resources :reviews
-  resources :trips
-  resources :activities
-  resources :tags
-  resources :users
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

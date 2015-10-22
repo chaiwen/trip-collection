@@ -1,6 +1,7 @@
 <header>
 	<%#= link_to "home", root_path, id: "logo" %>
-	<%= nav_bar fixed: :top, responsive: true, brand: "trip collection" do %>
+	<%= nav_bar fixed: :top, responsive: true, inverse: true, brand: "trip collection" do %>
+	<div class="container">
 		<%= menu_group do %>
 			<%= menu_item "Home", root_path %>
 			<%= menu_item "About" %>
@@ -19,8 +20,9 @@
 					<%= f.password_field :password %>
 					<%= f.submit "Log in" %>
 				<% end -%>
-				<%= menu_item "Sign Up", signup_path %>
+				<%= menu_item "Sign Up!", signup_path %>
 			<% end %>
 		<% end %>
+	</div>
 	<% end %>
 </header>
