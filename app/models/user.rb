@@ -41,7 +41,7 @@ class User
   field :photo_date, type: String
 
 
-  before_save {self.email = email.downcase }
+  before_save { self.email = email.downcase }
   validates :user_name, presence: true, length: { maximum: 50 }, uniqueness: true
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -55,6 +55,9 @@ class User
   #validate :user_cannot_follow_self
   	
   #end
+
+
+
 
   before_validation on: :create do |document|
 

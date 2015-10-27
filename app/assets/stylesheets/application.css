@@ -17,3 +17,9 @@
 
 
  body { padding-top: 120px;}
+
+ .gravatar {
+ 	float: left;
+ 	margin-right: 10px;
+ }
+ 

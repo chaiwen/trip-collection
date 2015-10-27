@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'login'       => 'sessions#new', :as => 'login' # as creates named path, so you can use login_path
   post 'login'      => 'sessions#create'
   
-  delete 'logout'   => 'sessions#destroy', :as => 'logout'
+  delete 'logout'   => 'sessions#destroy' # delete a session
 
 
 

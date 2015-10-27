@@ -11,22 +11,23 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
-
-    # todo??
+  def show # show.html
     @user = User.find(params[:id])
     puts "SHOW USER!!!!!"
-    # show.html
+    debugger # can use rails console to check vars and state!
   end
 
   # GET /users/new
   def new
+    puts "USER#NEW!!!!!!!"
+    # this is required as argument for form_for
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
     puts "EDIT??"
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -36,11 +37,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:success] = "Welcome to app!"
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        log_in @user # login user after creating account
+        flash[:success] = "Welcome to trip-collections!"
+        format.html { redirect_to @user, notice: 'User was successfully created.' } # redirect_to user_url(@user)
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { render :new } # render 'new'
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

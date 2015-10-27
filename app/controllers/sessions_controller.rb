@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 	def create
 		puts "------------------>sessions controller: create"
 
+# params = { session: {password: "", email: "" } }
 		user = User.find_by(email: params[:session][:email].downcase)
 
 		if user && user.authenticate(params[:session][:password])
@@ -23,7 +24,7 @@ class SessionsController < ApplicationController
 		else
 			# signin page
 
-			flash[:danger] = 'Invalid email/password combination'
+			flash.now[:danger] = 'Invalid email/password combination' #.now displaying on rendered vs req pages
 			puts "user not found!"
 			
 			render 'new'
@@ -31,7 +32,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:user_id] = nil
+		log_out
 		redirect_to root_url
 	end
 end

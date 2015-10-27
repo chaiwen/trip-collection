@@ -5,35 +5,35 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-<%= gravatar_for @user %>
+      <%= gravatar_for @user %>
 
-<p>
-  <strong>user name:</strong>
-  <%= @user.user_name %>
-</p>
+      <p>
+        <strong>user name:</strong>
+        <%= @user.user_name %>
+      </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+      <p>
+        <strong>First name:</strong>
+        <%= @user.first_name %>
+      </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <p>
+        <strong>Last name:</strong>
+        <%= @user.last_name %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+      <p>
+        <strong>Password:</strong>
+        <%= @user.password %>
+      </p>
 
-</section>
-</aside>
+    </section>
+  </aside>
 </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
