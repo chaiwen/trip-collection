@@ -97,3 +97,5 @@ MODELS:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Ruby on Rails, Fall 2015 - PaddyQuinn
