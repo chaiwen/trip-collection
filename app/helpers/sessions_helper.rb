@@ -1,7 +1,7 @@
 module SessionsHelper
 	# Logs in the given user.
 	def log_in(user)
-		session[:user_id] = user.id # places temp cookie on user's browser containing encrypted version of user id
+		session[:user_id] = user.id.to_s # places temp cookie on user's browser containing encrypted version of user id
 		# temp cookie expires immediately when browser is closed
 
 		puts "USER LOGGED IN!!!!"
