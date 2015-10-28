@@ -38,6 +38,10 @@
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit "create account", class: "btn btn-primary" %>
+    <% if params[:controller] == 'users' && params[:action] == 'edit' %>
+      <%= f.submit "edit account", class: "btn btn-primary" %>
+    <% else %>
+      <%= f.submit "create account", class: "btn btn-primary" %>
+    <% end %>
   </div>
 <% end %>
