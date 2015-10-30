@@ -8,33 +8,21 @@
       <%= gravatar_for @user %>
 
       <p>
-        <strong>user name:</strong>
-        <%= @user.user_name %>
-      </p>
-
-      <p>
-        <strong>First name:</strong>
-        <%= @user.first_name %>
-      </p>
-
-      <p>
-        <strong>Last name:</strong>
-        <%= @user.last_name %>
-      </p>
-
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-
-      <p>
-        <strong>Password:</strong>
-        <%= @user.password %>
+        <h1><strong>Hi, <%= @user.first_name %>!</strong></h1>
       </p>
 
     </section>
   </aside>
+  <div class="container">
+
+    <ul>
+      <li><%= link_to 'Create an Activity', new_activity_path %></li>
+      <li><%= link_to 'Create a Trip', new_trip_path %></li>
+    </ul>
+
+
+
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>

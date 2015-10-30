@@ -12,54 +12,52 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <h4><strong>Name this Activity</strong></h4>
+    <%= f.label :title %><br>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="field">
+    <h4><strong>Where is this activity?</strong></h4>
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.text_field :country, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :lat %><br>
-    <%= f.text_field :lat %>
+    <h4><strong>Describe this adventure</strong></h4>
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :lng %><br>
-    <%= f.text_field :lng %>
+    <h4><strong>When did you go?</strong></h4>
+    <%= f.label :date %><br>
+    <%= f.text_field :date, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :days %><br>
+    <h4><strong>How would you rate it?</strong></h4>
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <h4><strong>How long did it take?</strong></h4>
+    <%= f.label :days %>
     <%= f.text_field :days %>
-  </div>
-  <div class="field">
-    <%= f.label :hrs %><br>
+    <%= f.label :hrs %>
     <%= f.text_field :hrs %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
+    <h4><strong>How much did it cost?</strong></h4>
     <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
+    <%= f.text_field :cost, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "create activity", class: "btn btn-primary" %>
   </div>
 <% end %>

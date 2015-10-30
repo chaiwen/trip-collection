@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show # show.html
     @user = User.find(params[:id])
     puts "SHOW USER!!!!!"
-    debugger # can use rails console to check vars and state!
+    #debugger # can use rails console to check vars and state!
   end
 
   # GET /users/new

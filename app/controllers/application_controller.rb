@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   	if current_user
 		  return true
 	  end
+    flash[:danger] = 'Please login'
+
     puts "RETURNING TO ROOOOOT"
 	  redirect_to root_url
   end

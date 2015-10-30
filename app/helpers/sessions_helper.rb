@@ -1,7 +1,7 @@
 module SessionsHelper
 	# Logs in the given user.
 	def log_in(user)
-		session[:user_id] = user.id.to_s # places temp cookie on user's browser containing encrypted version of user id
+		session[:user_id] = user.id # places temp cookie on user's browser containing encrypted version of user id
 		# temp cookie expires immediately when browser is closed
 
 		puts "USER LOGGED IN!!!!"
@@ -11,6 +11,7 @@ module SessionsHelper
 	# log out
 	def log_out
 		session.delete(:user_id)
+		session[:user_id] = nil
 		@current_user = nil
 	end
 
@@ -32,14 +33,14 @@ module SessionsHelper
 
 		#session.delete(:user_id)
 
-		@current_user ||= User.find_by(id: session[:user_id])
+		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 		#debugger
 
 	end
 
 	# Returns true if the user is logged in, false otherwise.
 	def logged_in?
-		puts "CHECKING IF LOGGEDIN!"
+		puts "CHECKING IF LOGGEDIN!------------------->"
 		!current_user.nil?
 	end
 end
