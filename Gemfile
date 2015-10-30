@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'mongoid', '~> 4.0.0' # use mongodb
+gem 'mongoid', '~> 5.0.0' # use mongodb
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
