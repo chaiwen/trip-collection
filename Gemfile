@@ -21,6 +21,9 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
 
+gem 'will_paginate', '3.0.7'
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

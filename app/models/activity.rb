@@ -1,5 +1,6 @@
 class Activity
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   belongs_to  :user # author
   has_and_belongs_to_many  :savers, class_name: "User", inverse_of: :saved_activities # bookmarked
@@ -10,6 +11,9 @@ class Activity
   has_many    :photos   # photos of activity
   has_many :reviews, as: :reviewable
 
+  validates :user_id, presence: true
+  validates :name, presence: true, length: { maximum: 140 }
+
 
 #.as_document
 
@@ -19,6 +23,7 @@ class Activity
   field :name, type: String
   field :address, type: String
   field :city, type: String
+  field :state, type: String
   field :country, type: String
   field :lat, type: Float
   field :lng, type: Float

@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+
 
   # GET /activities
   # GET /activities.json
@@ -14,7 +16,9 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    @activity = Activity.new
+    #@activity = Activity.new
+
+    @activity = current_user.activities.build if logged_in?
   end
 
   # GET /activities/1/edit
@@ -24,10 +28,11 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
-    @activity = Activity.new(activity_params)
-
+    #@activity = Activity.new(activity_params)
+    @activity = current_user.activities.build(activity_params)
     respond_to do |format|
       if @activity.save
+        flash[:success] = "activity created!"
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
       else
@@ -62,6 +67,14 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please Log in."
+        redirect_to login_url
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
       @activity = Activity.find(params[:id])
@@ -69,6 +82,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :address, :city, :country, :lat, :lng, :days, :hrs, :rating, :description, :cost, :date)
+      params.require(:activity).permit(:name, :address, :city, :state, :country, :lat, :lng, :days, :hrs, :rating, :description, :cost, :date)
     end
 end

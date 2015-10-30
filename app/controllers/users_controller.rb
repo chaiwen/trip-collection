@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show # show.html
     @user = User.find(params[:id])
+    @activities = @user.activities#.paginate(page: params[:page])
     puts "SHOW USER!!!!!"
     #debugger # can use rails console to check vars and state!
   end
