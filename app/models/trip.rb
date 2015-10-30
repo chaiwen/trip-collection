@@ -1,5 +1,6 @@
 class Trip
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   belongs_to :user # author
   has_and_belongs_to_many :savers, class_name: "User", inverse_of: :saved_trips # bookmarked

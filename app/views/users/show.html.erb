@@ -26,8 +26,9 @@
   </div>
 
 
+<%= link_to 'Edit', edit_user_path(@user) %>
 
-  <div class="col-md-8">
+<div class="col-md-8">
     <% if @user.activities.any? %>
       <h3>activities (<%= @user.activities.count %>)</h3>
       <ol class="activities">
@@ -35,6 +36,18 @@
       </ol>
     <% end %>
   </div>
-</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+
+  <div class="col-md-8">
+    <% if @user.trips.any? %>
+      <h3>trips (<%= @user.trips.count %>)</h3>
+      <ol class="trips">
+        <%= render @trips %>
+      </ol>
+    <% end %>
+  </div>
+
+
+
+
+  </div>

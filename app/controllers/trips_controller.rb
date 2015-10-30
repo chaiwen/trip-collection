@@ -1,5 +1,8 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+
+  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :set_trip, only: [:show, :edit, :add, :update, :destroy]
+  
 
   # GET /trips
   # GET /trips.json
@@ -14,7 +17,30 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
-    @trip = Trip.new
+    #@trip = Trip.new
+
+    # activities all belong to a user, the author
+    #@user = current_user
+    @trip = current_user.trips.build if logged_in?
+  end
+
+  def add
+    #@trip = Trip.new
+
+    # activities all belong to a user, the author
+    @user = current_user
+    @activities = @user.activities
+
+    #respond_to do |format|
+     # if @trip.update(trip_params)
+      #  format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+       # format.json { render :show, status: :ok, location: @trip }
+   #   else
+    #    format.html { render :edit }
+     #   format.json { render json: @trip.errors, status: :unprocessable_entity }
+  #    end
+   # end
+    
   end
 
   # GET /trips/1/edit
@@ -24,7 +50,11 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
+    @trip = current_user.trips.build(trip_params)
+
+
+    #@comment = @article.comments.build
+    #@trip = Trip.new(trip_params)
 
     respond_to do |format|
       if @trip.save
@@ -62,6 +92,14 @@ class TripsController < ApplicationController
   end
 
   private
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please Log in."
+        redirect_to login_url
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_trip
       @trip = Trip.find(params[:id])

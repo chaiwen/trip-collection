@@ -1,0 +1,23 @@
+<% provide(:title, "Log in") %>
+<h1><strong>Trip collections!</strong></h1>
+<h4><b>Please log in to continue:</b></h4>
+<%# must indicate url and action since session is not a class %>
+<%= form_for(:session, :url => login_path, :method => :post) do |f| %>
+	
+
+	<div class="field">
+		<%= f.label :email %><br>
+		<%= f.email_field :email, class: 'form-control' %>
+	</div>
+	<div>
+		<%= f.label :password %><br>
+		<%= f.password_field :password, class: 'form-control' %>
+	</div>
+
+	<div class="actions">
+		<br />
+		<%= f.submit "Log in", class: "btn btn-primary" %>
+	</div>
+<% end %>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>

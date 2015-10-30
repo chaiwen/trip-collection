@@ -12,22 +12,31 @@
   <% end %>
 
   <div class="field">
+    <h4><strong>Name this Trip</strong></h4>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="field">
+    <h4><strong>How would you rate it?</strong></h4>
     <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
+    <%= f.text_field :rating, class: 'form-control' %>
   </div>
   <div class="field">
+    <h4><strong>Describe this adventure</strong></h4>
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, placeholder: "describe your adventure...", class: 'form-control' %>
   </div>
   <div class="field">
+    <h4><strong>When did you go?</strong></h4>
     <%= f.label :date %><br>
     <%= f.text_field :date %>
   </div>
+
+
+
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "create trip", class: "btn btn-primary" %>
   </div>
 <% end %>

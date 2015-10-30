@@ -1,6 +1,15 @@
 class SessionsController < ApplicationController
 
-	skip_before_filter :require_user, :only => [:new, :create]
+	skip_before_filter :require_user, :only => [:index, :new, :create]
+
+	def index
+		puts "------------------>sessions controller: index??"
+
+		if logged_in?
+			redirect_to current_user
+		end
+	end
+
 
 	def new
 		puts "------------------>sessions controller: new"

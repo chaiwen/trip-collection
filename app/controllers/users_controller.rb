@@ -6,7 +6,10 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     puts "DEF INDEX USER CONTROLLER!"
-    @users = User.all
+    # error page
+    #@users = User.all
+
+    redirect_to root_url
   end
 
   # GET /users/1
@@ -14,6 +17,7 @@ class UsersController < ApplicationController
   def show # show.html
     @user = User.find(params[:id])
     @activities = @user.activities#.paginate(page: params[:page])
+    @trips = @user.trips
     puts "SHOW USER!!!!!"
     #debugger # can use rails console to check vars and state!
   end

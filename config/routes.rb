@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
 
-  root                 'sessions#new' # home page
+  root                 'sessions#index' # home page
 
   get 'signup'      => 'users#new', :as => 'signup'
 

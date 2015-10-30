@@ -18,6 +18,7 @@ class ActivitiesController < ApplicationController
   def new
     #@activity = Activity.new
 
+    # activities all belong to a user, the author
     @activity = current_user.activities.build if logged_in?
   end
 
