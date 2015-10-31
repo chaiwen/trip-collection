@@ -82,7 +82,7 @@ class TripsController < ApplicationController
   def update
     puts "UPDATE TRIPPPPPPPPPPPPPPPPPPPPPP"
 
-    @trip = Trip.find(params[:id])
+    #@trip = Trip.find(params[:id])
 
     respond_to do |format|
 
@@ -90,7 +90,7 @@ class TripsController < ApplicationController
       puts "WHAT"
       puts trip_params
 
-=begin
+
       if @trip.update(trip_params)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
         format.json { render :show, status: :ok, location: @trip }
@@ -98,9 +98,9 @@ class TripsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
-=end
 
-    redirect_to trips_url
+
+    #redirect_to trips_url
 
     end
   end
