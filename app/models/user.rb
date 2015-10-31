@@ -4,6 +4,9 @@ class User
   include Mongoid::Attributes::Dynamic
   include ActiveModel::SecurePassword
 
+
+
+
   #has_one  :photo, as: :photoable
   #embeds_one 	:profile_photo, class_name: "Photo", inverse_of: :photoable
   #has_many		:uploaded_photo, class_name: "Photo", inverse_of: :photoable
@@ -57,6 +60,11 @@ class User
   #end
 
 
+  #acts_as_slugoid :generate_from => :user_name
+  #extend FriendlyId
+  #friendly_id :user_name
+
+
 
 
   before_validation on: :create do |document|
@@ -69,7 +77,6 @@ class User
   end
 
   
-
 
   # update view
 =begin

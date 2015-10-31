@@ -1,5 +1,15 @@
 == README
 
+10/30 Final project
+
+Two features:
+
+1. using twitter bootstrap
+2. user can update password in edit user page
+
+
+
+
 10/13 HW 5
 
 Add validations:

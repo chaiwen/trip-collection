@@ -2,7 +2,7 @@ class TripsController < ApplicationController
 
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_trip, only: [:show, :edit, :add, :update, :destroy]
-  
+  skip_before_filter :require_user, :only => [:show]
 
   # GET /trips
   # GET /trips.json
@@ -43,13 +43,23 @@ class TripsController < ApplicationController
     
   end
 
+  
+
+
+
+
+
   # GET /trips/1/edit
   def edit
+    puts "EDIT??"
+    @trip = Trip.find(params[:id])
   end
 
   # POST /trips
   # POST /trips.json
   def create
+
+    puts "CREATE TRIPPPPPPPPPPPPPPPPPPPPPP"
     @trip = current_user.trips.build(trip_params)
 
 
@@ -70,7 +80,17 @@ class TripsController < ApplicationController
   # PATCH/PUT /trips/1
   # PATCH/PUT /trips/1.json
   def update
+    puts "UPDATE TRIPPPPPPPPPPPPPPPPPPPPPP"
+
+    @trip = Trip.find(params[:id])
+
     respond_to do |format|
+
+      puts @trip
+      puts "WHAT"
+      puts trip_params
+
+=begin
       if @trip.update(trip_params)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
         format.json { render :show, status: :ok, location: @trip }
@@ -78,6 +98,10 @@ class TripsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
+=end
+
+    redirect_to trips_url
+
     end
   end
 
@@ -107,6 +131,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:title, :rating, :description, :date)
+      params.require(:trip).permit(:title, :rating, :description, :date, :activity_ids)
     end
 end

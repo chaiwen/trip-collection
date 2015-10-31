@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+
   before_filter :require_user # before every action run this code, continue if true
 
 

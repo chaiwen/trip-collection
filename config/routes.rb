@@ -19,6 +19,11 @@ Rails.application.routes.draw do
 
 
 
+  get 'trips/:id/add' => 'trips#add', :as => 'addtrip'
+  post 'trips/:id/add' => 'trips#updateActivities', :as => 'updateActivities'
+
+
+
 
   #get "users/:id" => "users#show", :as => "show"
   #get "show" => "users#show", :as => "show"

@@ -20,6 +20,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
+#gem 'slugoid'
 
 gem 'will_paginate', '3.0.7'
 
