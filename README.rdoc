@@ -2,6 +2,10 @@
 
 10/30 Final project
 
+Shared public list:
+-Trips will display activities
+-users add activities to Trips on the add activities link from user dashboard, after creating a trip
+
 Two features:
 
 1. using twitter bootstrap

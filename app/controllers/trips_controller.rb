@@ -90,6 +90,11 @@ class TripsController < ApplicationController
       puts "WHAT"
       puts trip_params
 
+      if !params[:activity_ids].nil?
+        params[:activity_ids].each do |a|
+            @trip.activities << Activity.find(a)
+        end
+      end
 
       if @trip.update(trip_params)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
