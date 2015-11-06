@@ -1,2 +1,2 @@
 # trip-collection
-Ruby on Rails, Fall 2015 - PaddyQuinn
+Ruby on Rails app with MongoDB
